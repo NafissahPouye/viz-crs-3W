@@ -33,7 +33,7 @@ function generateringComponent(vardata, vargeodata){
   var cf = crossfilter(vardata) ;
   var all = cf.groupAll();
   var mapDimension = cf.dimension(function(d) { return d['#adm2+code']});
-  var mapGroup = mapDimension.group().reduceSum(function (d){return d['#reached+total']});
+  var mapGroup = mapDimension.group();
   var total = dc.numberDisplay('#Total');
   var benDirects = dc.numberDisplay('#Direct');
   var benIndirects = dc.numberDisplay('#Indirect');
@@ -101,26 +101,19 @@ whoChart
              .center([0,0])
              .zoom(0)
              .geojson(vargeodata)
-             .colors(['#B0C4DE','#4169E1','#5472AE','#1560BD', '#003366'])
+             .colors(['#B0C4DE','#4169E1'])
         .renderTitle(true)
         .label(function (p) {
             return p.key;
         })
-        .colorDomain([0, 4])
-        .colorAccessor(function (d) {
-            var c = 0
-            if (d > 500000) {
-                c = 4;
-            } else if (d > 300000) {
-                c = 3;
-            } else if (d > 50000) {
-                c = 2;
-            } else if (d > 0) {
-                c = 1;
-            };
-            return c
-
-        })
+        .colorDomain([0, 1])
+            .colorAccessor(function (d) {
+                var c=0;
+                if (d>0) {
+                    c=1;
+                }
+                    return c;
+                })       
         .featureKeyAccessor(function (feature) {
             return feature.properties['admin2Pcod'];
         }).popup(function (d) {

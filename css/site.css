@@ -1,0 +1,120 @@
+#Map {
+    height:350px;
+    width:350px;
+    margin-top:13px;
+    
+}
+
+
+.hdx-3w-info{
+    padding:5px;
+    background-color:white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    font-size:1.5em;
+    color: #334EFF;
+ }
+
+.header{
+    border-bottom: 1px solid #999;
+    padding-bottom: 3px;
+    width: 300px;
+    
+}
+.kf {
+    text-decoration: underline;
+}
+#reset {
+    float: right;
+}
+#numbers p {
+    /*color: #03a9f4;*/
+    font-weight: 550;
+    font-size: 15px;
+    padding-left: 0px;
+    
+}
+
+
+ .viz_chart {
+    width:100%;
+     float: left;
+    }
+hr{
+    border-top-color: #999;
+    margin: 10px 0;
+}
+
+.dc-chart g.row text {fill: black;}
+
+.tick line {
+display: none;
+}
+
+.buttonlink {
+    border-width: 1px;
+    border-style:solid;
+    border-color:#334EFF;
+    border-radius: 3px;
+    font-size:1.2em;
+    background-color:#fff;
+    padding: 10px;
+    margin-right:10px;
+    color:;
+    outline:0;
+    margin-bottom:10px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#who {
+  
+  height: 660px;
+  width: 450px;
+    
+}
+
+#who svg g g.axis .tick text {
+    display: none;
+}
+
+#who svg g g.axis .domain {
+    display: none;
+}
+#what {
+  overflow-y: auto;
+  height: 660px;
+  width: 450px;
+}
+
+#what svg g g.axis .tick text {
+    display: none;
+}
+
+#what svg g g.axis .domain {
+    display: none;
+}
+.count {
+    color:#D33F49;
+    font-size: 18px;
+}
+
+.quality {
+    clear:both;
+}
+
+.title {
+    font-weight:bold;
+    font-size: 12px;
+    margin-right:15px;
+    margin-left: 3px;
+    margin-top: 10px;
+    
+}
+
+.graphtop {
+    height: 20px;
+    margin-left: 60px;
+    margin-right: 10px;
+    margin-top: 10px;
+}

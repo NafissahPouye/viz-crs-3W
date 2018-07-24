@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>Catholic Relief Services - 3W</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/dc.css"/>
+        <link rel="stylesheet" type="text/css" href="css/site.css"/>
+        <link rel="stylesheet" type="text/css" href="css/leaflet.css"/>
+        <script src="js/jquery.js"></script>
+        <script src="js/d3.min.js"></script>
+        <script src="js/crossfilter.v1.min.js"></script>
+        <script src="js/dc.js"></script>
+        <script src="js/leaflet.js"></script>  
+        <script src="js/dc.leaflet.js"></script>   
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4> Activités de la CRS dans les communes du Sénégal </h4>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 12px;">
+                
+                <div class="col-md-12" style="text-align: justify;">
+                    Ut enim quisque sibi plurimum confidit et ut quisque maxime virtute et sapientia sicmunitus est, ut nullo egeat suaque omnia in se ipso posita iudicet, ita in amicitiis expetendis colendisque maxime excellit. Quid enim? Africanus indigens mei? Minime hercule! ac ne ego quidem illius; sed ego admiratione quadam virtutis eius, ille vicissim opinione fortasse non nulla, quam de meis moribus habebat, me dilexit; auxit benevolentiam consuetudo. Sed quamquam utilitates multae et magnae consecutae sunt.
+                </div>
+            </div>
+            <div  class="row">
+                <div class="col-md-8">
+                    <p id="description"></p>
+                </div>
+                </div>
+             
+            <div class="row">
+                <div class="col-md-12">
+                    <a class="reset btn btn-primary btn-sm" id="reset" href="javascript:dc.filterAll();dc.redrawAll();">Reset All</a> 
+            </div>
+                 </div>
+             <hr>      
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-4" id="numbers">
+                <p id="Total"></p>
+                <h5 class="header">Total Bénéficiaires</h5>
+            </div>
+            <div class="col-md-4  col-sm-4 col-xs-4" id="numbers">
+                <p id="Direct"></p>
+                <h5 class="header">Bénéficiaires Directs</h5>
+                
+            </div> 
+            <div class="col-md-4 col-sm-4 col-xs-4" id="numbers">
+                <p id="Indirect"></p>
+                <h5 class="header"><center> Bénéficiaires Indirects</h5>
+            </div>
+               
+        </div>  
+             
+                <div class="row" >                           
+                
+                <div class="col-md-4">
+                    <div id="who" class="viz_chart">
+                        <p class="graphtop"><span class="title">Activités</span>filtré sur: <span class='filter' style='display: none;'></span></p>
+                    </div>
+                    
+                </div>
+                <div class="col-md-4">
+                    <div id="what" class="viz_chart"><p class="graphtop"><span class="title"> Secteur</span>filtré sur: <span class='filter' style='display: none;'></span> </p></div>
+                    
+                </div>
+                    <div class="col-md-4"> 
+                        <p class="graphtop"><span class="title"> Choroplèthe des bénéficiaires par département </span></p>
+                    <div id="Map" class="viz_chart">
+                    </div> 
+                    
+                    
+                    </div>
+                </div>
+        </div>        
+            
+                    
+        <script src="js/site.js"></script> 
+            
+             
+    </body>
+</html>

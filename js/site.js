@@ -1,3 +1,30 @@
+function hxlProxyToJSON(input){
+    var output = [];
+    var keys = [];
+    input.forEach(function(e,i){
+        if(i==0){
+            e.forEach(function(e2,i2){
+                var parts = e2.split('+');
+                var key = parts[0]
+                if(parts.length>1){
+                    var atts = parts.splice(1,parts.length);
+                    atts.sort();                    
+                    atts.forEach(function(att){
+                        key +='+'+att
+                    });
+                }
+                keys.push(key);
+            });
+        } else {
+            var row = {};
+            e.forEach(function(e2,i2){
+                row[keys[i2]] = e2;
+            });
+            output.push(row);
+        }
+    });
+    return output;
+}
 function generateringComponent(vardata, vargeodata){
   var lookup = genLookup(vargeodata) ;
   var crsMap = dc.leafletChoroplethChart('#Map');
@@ -149,6 +176,7 @@ var dataCall = $.ajax({
 
 var geomCall = $.ajax({
     type: 'GET',
+  //  url: 'https://proxy.hxlstandard.org/data.json?strip-headers=on&url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F19dmYe6oCJuJ92nOIqqwyRI8wBgizwuwJh1ycOOrqHUw%2Fedit%23gid%3D372257676',
     url: 'data/senegalAdm2.geojson',
     dataType: 'json',
 });

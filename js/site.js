@@ -74,7 +74,7 @@ whoChart
              .center([0,0])
              .zoom(0)
              .geojson(vargeodata)
-             .colors(['#6495ED','#4169E1','#5472AE','#1560BD', '#003366'])
+             .colors(['#B0C4DE','#4169E1','#5472AE','#1560BD', '#003366'])
         .renderTitle(true)
         .label(function (p) {
             return p.key;

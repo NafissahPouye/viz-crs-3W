@@ -1,30 +1,3 @@
-function hxlProxyToJSON(input){
-    var output = [];
-    var keys = [];
-    input.forEach(function(e,i){
-        if(i==0){
-            e.forEach(function(e2,i2){
-                var parts = e2.split('+');
-                var key = parts[0]
-                if(parts.length>1){
-                    var atts = parts.splice(1,parts.length);
-                    atts.sort();                    
-                    atts.forEach(function(att){
-                        key +='+'+att
-                    });
-                }
-                keys.push(key);
-            });
-        } else {
-            var row = {};
-            e.forEach(function(e2,i2){
-                row[keys[i2]] = e2;
-            });
-            output.push(row);
-        }
-    });
-    return output;
-}
 function generateringComponent(vardata, vargeodata){
   var lookup = genLookup(vargeodata) ;
   var crsMap = dc.leafletChoroplethChart('#Map');
@@ -32,27 +5,30 @@ function generateringComponent(vardata, vargeodata){
   var whatChart = dc.rowChart('#what');
   var cf = crossfilter(vardata) ;
   var all = cf.groupAll();
+    
   var mapDimension = cf.dimension(function(d) { return d['#adm2+code']});
   var mapGroup = mapDimension.group();
-  var total = dc.numberDisplay('#Total');
+  /*var total = dc.numberDisplay('#Total');
   var benDirects = dc.numberDisplay('#Direct');
-  var benIndirects = dc.numberDisplay('#Indirect');
+  var benIndirects = dc.numberDisplay('#Indirect');*/
   var whatDimension = cf.dimension(function (d){return d['#sector+name']});
   var whoDimension = cf.dimension(function(d){return (d['#subsector+name'])});
   var whatGroup = whatDimension.group();
   var whoGroup = whoDimension.group();
-  var totalDimension = cf.dimension(function(d){return d['#reached+total']});
+  /*var totalDimension = cf.dimension(function(d){return d['#subsector+name']});
   var totalGroup = totalDimension.groupAll().reduceSum(function(d){return d['#reached+total']});
+  
   var bdDimension = cf.dimension(function(d){return d['#reached+direct']});
   var bdGroup = totalDimension.groupAll().reduceSum(function(d){return d['#reached+direct']});
   var biDimension = cf.dimension(function(d){return d['#reached+indirect']});
   var biGroup = totalDimension.groupAll().reduceSum(function(d){return d['#reached+indirect']});
-    
+    */
 //Key figures
-         total.group(totalGroup)
+         /*total.group(totalGroup)
+             
               .formatNumber(d3.format(',.0f'))
               .valueAccessor(function (d) { return d;
-              } ) ; 
+              }) ; 
    benDirects.group(bdGroup)
               .formatNumber(d3.format(',.0f'))
               .valueAccessor(function (d) { return d;
@@ -60,16 +36,22 @@ function generateringComponent(vardata, vargeodata){
   benIndirects.group(biGroup)
               .formatNumber(d3.format(',.0f'))
               .valueAccessor(function (d) { return d;
-              } ) ; 
+              } ) ; */
     
 whatChart
             .width(350)
-            .height(400) 
+            .height(310) 
+    .margins({
+            top: 10,
+            right: 30,
+            bottom: 30,
+            left: 50
+          })
             .dimension(whatDimension)
             .group(whatGroup)
             .elasticX(true)
             .data(function(group) {
-                return group.top(15);
+                return group.top(Infinity);
             })
             //.filter(function(d) { return d.key !== ""; })
             .colors('#4169E1')
@@ -77,12 +59,18 @@ whatChart
             
 whoChart
             .width(350)
-            .height(400)
+            .height(310)
+            .margins({
+            top: 10,
+            right: 30,
+            bottom: 30,
+            left: 50
+          })
             .dimension(whoDimension)
             .group(whoGroup)
             .elasticX(true)
             .data(function(group) {
-                return group.top(15)
+                return group.top(Infinity)
             .filter(function(d) { return d.key !== ""; });
             })
             //.filter(function(d) { return d.key !== ""; })
@@ -93,7 +81,7 @@ whoChart
   dc.dataCount('#count-info')
   .dimension(cf)
   .group(all);
-       crsMap.width($('#Map').width()).height(100)
+       crsMap.width($('#Map').width()).height(90)
              .dimension(mapDimension)
              .group(mapGroup)
              //.label(function (p) { return p.key; })

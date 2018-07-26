@@ -1,7 +1,7 @@
 #Map {
-    height:350px;
-    width:350px;
-    margin-top:55px;
+    height:258px;
+    width:100%;
+   /* margin-top:55px;*/
     
 }
 
@@ -27,6 +27,8 @@
 }
 #reset {
     float: right;
+    margin-bottom: 15px;
+    margin-top: 10px;
 }
 #numbers p {
     /*color: #03a9f4;*/
@@ -69,8 +71,8 @@ display: none;
 
 #who {
   
-  height: 660px;
-  width: 450px;
+  height: 200px;
+  width: 100%;
     
 }
 
@@ -82,9 +84,9 @@ display: none;
     display: none;
 }
 #what {
-  overflow-y: auto;
-  height: 660px;
-  width: 450px;
+  /*overflow-y: auto;*/
+  height: 200px;
+  width: 100%;
 }
 
 #what svg g g.axis .tick text {

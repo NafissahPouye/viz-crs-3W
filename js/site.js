@@ -134,8 +134,8 @@ whoChart
       function zoomToGeom(geodata){
         var bounds = d3.geo.bounds(geodata) ;
         map.fitBounds([[bounds[0][1],bounds[0][0]],[bounds[1][1],bounds[1][0]]])
-            /*.setZoom(5)
-            .setView([9, 10.37], 4);*/
+            .setZoom(6);
+            /*.setView([6, 8], 6);*/
       }
         
       function genLookup(geojson) {

@@ -134,8 +134,9 @@ whoChart
       function zoomToGeom(geodata){
         var bounds = d3.geo.bounds(geodata) ;
         map.fitBounds([[bounds[0][1],bounds[0][0]],[bounds[1][1],bounds[1][0]]])
-            .setZoom(6);
-            /*.setView([6, 8], 6);*/
+            .setZoom(6)
+            .dragging.disable();;
+            //.setView([14, 14], 3);
       }
         
       function genLookup(geojson) {
@@ -145,7 +146,8 @@ whoChart
         });
         return lookup ;
       }
-}
+};
+      
 
      
 
@@ -158,7 +160,7 @@ var dataCall = $.ajax({
 var geomCall = $.ajax({
     type: 'GET',
   //  url: 'https://proxy.hxlstandard.org/data.json?strip-headers=on&url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F19dmYe6oCJuJ92nOIqqwyRI8wBgizwuwJh1ycOOrqHUw%2Fedit%23gid%3D372257676',
-    url: 'data/senegalAdm2.geojson',
+    url: 'data/SN_adm2.geojson',
     dataType: 'json',
 });
 

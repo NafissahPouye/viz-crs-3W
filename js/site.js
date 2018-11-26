@@ -1,4 +1,4 @@
-function generateringComponent(vardata, vargeodata){
+  function generateringComponent(vardata, vargeodata){
   var lookup = genLookup(vargeodata) ;
   var crsMap = dc.leafletChoroplethChart('#Map');
   var whoChart = dc.rowChart('#who');
@@ -57,7 +57,7 @@ whatChart
             .colors('#4169E1')
             .colorAccessor(function(d, i){return 0;});
             
-whoChart
+    whoChart
             .width(350)
             .height(310)
             .margins({
@@ -78,23 +78,22 @@ whoChart
             .colorAccessor(function(d, i){return 0;})
             .xAxis().ticks(5);
             //.xAxis().ticks(5);
-  dc.dataCount('#count-info')
-  .dimension(cf)
-  .group(all);
+   dc.dataCount('#count-info')
+    .dimension(cf)
+    .group(all);
        crsMap.width($('#Map').width()).height(90)
              .dimension(mapDimension)
              .group(mapGroup)
              //.label(function (p) { return p.key; })
 //.renderTitle(true)
              .center([0,0])
-             .zoom(0)
              .geojson(vargeodata)
              .colors(['#B0C4DE','#4169E1'])
-        .renderTitle(true)
-        .label(function (p) {
-            return p.key;
-        })
-        .colorDomain([0, 1])
+             .renderTitle(true)
+             .label(function (p) {
+                    return p.key;
+                                })
+            .colorDomain([0, 1])
             .colorAccessor(function (d) {
                 var c=0;
                 if (d>0) {
@@ -102,11 +101,11 @@ whoChart
                 }
                     return c;
                 })       
-        .featureKeyAccessor(function (feature) {
+            .featureKeyAccessor(function (feature) {
             return feature.properties['admin2Pcod'];
-        }).popup(function (d) {
+           }).popup(function (d) {
             return '<h4>'+ d.properties['admin2Name']+ '</h4>' ;
-        })
+     })
         
         .featureOptions({
             'fillColor': 'gray',
@@ -126,16 +125,19 @@ whoChart
 
       dc.renderAll();
 
-      var map = crsMap.map({ 
+      var map = crsMap.map({ scrollWheelZoom:false
         
       });
-
+     
+$(".leaflet-control-zoom").css("visibility", "hidden");
       zoomToGeom(vargeodata);
       function zoomToGeom(geodata){
         var bounds = d3.geo.bounds(geodata) ;
         map.fitBounds([[bounds[0][1],bounds[0][0]],[bounds[1][1],bounds[1][0]]])
             .setZoom(6)
-            .dragging.disable();;
+            .scrollWheelZoom.disable()
+            .dragging.disable();
+            
             //.setView([14, 14], 3);
       }
         
@@ -149,7 +151,6 @@ whoChart
 };
       
 
-     
 
 var dataCall = $.ajax({
     type: 'GET',

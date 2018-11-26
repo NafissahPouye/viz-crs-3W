@@ -4,6 +4,9 @@
    /* margin-top:55px;*/
     
 }
+.leaflet-zoom-box {
+    display: none;
+}
 
 .hdx-3w-info{
     padding:5px;

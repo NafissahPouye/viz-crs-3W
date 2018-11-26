@@ -5,7 +5,6 @@
     
 }
 
-
 .hdx-3w-info{
     padding:5px;
     background-color:white;
@@ -15,7 +14,11 @@
     font-size:1.5em;
     color: #334EFF;
  }
-
+h6 {
+	font-family: 'Gotham-Bold';
+	font-size: 13px;
+	margin-bottom: 0px;
+}
 .header{
     border-bottom: 1px solid #999;
     padding-bottom: 3px;

@@ -135,11 +135,11 @@ $(".leaflet-control-zoom").css("visibility", "hidden");
         var bounds = d3.geo.bounds(geodata) ;
         map.fitBounds([[bounds[0][1],bounds[0][0]],[bounds[1][1],bounds[1][0]]])
             .setZoom(6)
+            //.keyboard.disable()
             .dragging.disable();
-            
             //.setView([14, 14], 3);
       }
-        
+     map.keyboard.disable();   
       function genLookup(geojson) {
         var lookup = {} ;
         geojson.features.forEach(function (e) {
